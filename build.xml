@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<project name="hq-dynomite-plugin" default="build" basedir=".">
+
+  <property file="${user.home}/.hq-plugin-build.properties"/>
+
+  <property name="name" value="dynomite"/>
+
+  <property name="pdk.dir" value="../.."/>
+
+  <property name="build.dir" location="build"/>
+
+  <property name="plugin.dir" location="${build.dir}/plugins"/>
+
+  <!-- Plugin interfaces and support classes -->
+  <path id="plugin.classpath">
+    <fileset dir="${pdk.dir}/lib" includes="*.jar"/>
+    <fileset dir="lib" includes="*.jar"/>
+  </path>
+
+  <!-- ${name}-plugin.jar packaging -->
+  <taskdef name="hqplugin" 
+           classname="org.hyperic.hq.product.ant.PluginJar"
+           classpathref="plugin.classpath"/>
+
+  <!-- Compile the classes and build ${name}-plugin.jar -->
+  <target name="compile">
+    <mkdir dir="${build.dir}/classes"/>
+    <mkdir dir="${plugin.dir}"/>
+
+    <javac destdir="${build.dir}/classes"
+           optimize="off"
+           debug="on"
+           source="1.5" target="1.5"
+           classpathref="plugin.classpath">
+      <src>
+        <path location="src"/>
+      </src>
+    </javac>
+  </target>
+
+  <target name="pack">
+    <hqplugin name="${name}"/>
+  </target>
+
+  <target name="build" depends="compile,pack"/>
+
+  <target name="clean">
+    <delete dir="${build.dir}"/>
+  </target>
+</project>
