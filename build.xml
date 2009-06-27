@@ -47,4 +47,10 @@
   <target name="clean">
     <delete dir="${build.dir}"/>
   </target>
+
+  <target name="markdown">
+    <exec executable="markdown" dir="." output="${build.dir}/README.html">
+      <arg value="README.markdown"/>
+    </exec>
+  </target>
 </project>
