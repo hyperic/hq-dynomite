@@ -1,3 +1,8 @@
+NOTICE
+========
+
+[Dynomite is a dead project and is no longer being maintained](http://bit.ly/cpAueY)
+
 ## Hyperic HQ Dynomite plugin
 
 This project is a Hyperic HQ plugin for monitoring [Dynomite](http://wiki.github.com/cliffmoon/dynomite)
@@ -5,8 +10,6 @@ This project is a Hyperic HQ plugin for monitoring [Dynomite](http://wiki.github
 Source code is available at [github.com/hyperic/hq-dynomite](http://github.com/hyperic/hq-dynomite)
 
 Plugin binary is available at [hudson.hyperic.com/job/hq-dynomite-plugin](http://hudson.hyperic.com/job/hq-dynomite-plugin/)
-
-More info at [HyperForge/Dynomite](http://support.hyperic.com/display/hypcomm/Dynomite)
 
 ### Auto-Discovery
 
